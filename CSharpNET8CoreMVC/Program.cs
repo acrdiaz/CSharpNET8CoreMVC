@@ -7,6 +7,8 @@ builder.Services.AddControllersWithViews(); // dependency injection
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 app.UseRouting(); // routing middleware
 
 app.MapControllerRoute(
