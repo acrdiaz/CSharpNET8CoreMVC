@@ -30,7 +30,13 @@
         </nav>
     </header>
     <main role="main" class="container">
-        @RenderBody()
+        <div class="pb-3">
+            @RenderSection("Title", required: false)
+            <hr />
+        </div>
+        <div>
+            @RenderBody()
+        </div>
     </main>
     <!--<footer class="card-footer">
         <p>&copy; 2025 - CSharpNET8CoreMVC</p>
