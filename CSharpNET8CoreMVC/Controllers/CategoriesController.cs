@@ -21,6 +21,9 @@ namespace CSharpNET8CoreMVC.Controllers
         [HttpPost]
         public IActionResult Edit(Category category)
         {
+            if (!ModelState.IsValid)
+                return View(category);
+
             CategoriesRepository.UpdateCategory(category.Id, category);
             return RedirectToAction(nameof(Index));
         }
