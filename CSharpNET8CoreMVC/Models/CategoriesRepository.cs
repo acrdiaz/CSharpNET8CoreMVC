@@ -26,11 +26,9 @@
         public static List<Category> GetCategories() => _categories;
 
         public static Category? GetCategoryById(int id)
-        {
-            // => _categories.FirstOrDefault(c => c.Id == id);
-            
+        {    
             var category = _categories.FirstOrDefault(c => c.Id == id);
-            if (category == null)
+            if (category != null)
             {
                 return new Category
                 {
@@ -47,7 +45,7 @@
         {
             if (id != category.Id) return;
 
-            var categoryToUpdate = GetCategoryById(id);
+            var categoryToUpdate = _categories.FirstOrDefault(c => c.Id == id);
             if (categoryToUpdate != null)
             {
                 categoryToUpdate.Name = category.Name;
