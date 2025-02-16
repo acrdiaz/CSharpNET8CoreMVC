@@ -17,7 +17,7 @@ namespace CSharpNET8CoreMVC.Controllers
 
             return View(category);
         }
-
+        
         [HttpPost]
         public IActionResult Edit(Category category)
         {
@@ -25,6 +25,21 @@ namespace CSharpNET8CoreMVC.Controllers
                 return View(category);
 
             CategoriesRepository.UpdateCategory(category.Id, category);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(Category category)
+        {
+            if (!ModelState.IsValid)
+                return View(category);
+
+            CategoriesRepository.AddCategory(category);
             return RedirectToAction(nameof(Index));
         }
     }
