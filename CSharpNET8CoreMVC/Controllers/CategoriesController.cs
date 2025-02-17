@@ -32,7 +32,7 @@ namespace CSharpNET8CoreMVC.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public IActionResult Add(Category category)
         {
@@ -40,6 +40,12 @@ namespace CSharpNET8CoreMVC.Controllers
                 return View(category);
 
             CategoriesRepository.AddCategory(category);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            CategoriesRepository.DeleteCategory(Id);
             return RedirectToAction(nameof(Index));
         }
     }

@@ -55,10 +55,10 @@
 
         public static void DeleteCategory(int id)
         {
-            var category = GetCategoryById(id);
-            if (category != null)
+            var categoryToDelete = _categories.FirstOrDefault(c => c.Id == id);
+            if (categoryToDelete != null)
             {
-                _categories.Remove(category);
+                _categories.Remove(categoryToDelete);
             }
         }
     }
