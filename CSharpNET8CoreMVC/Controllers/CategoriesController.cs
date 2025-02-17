@@ -13,6 +13,8 @@ namespace CSharpNET8CoreMVC.Controllers
 
         public IActionResult Edit(int? id)
         {
+            ViewBag.Action = "Edit";
+
             var category = CategoriesRepository.GetCategoryById(id.HasValue ? id.Value : 0);
 
             return View(category);
@@ -30,6 +32,8 @@ namespace CSharpNET8CoreMVC.Controllers
 
         public IActionResult Add()
         {
+            ViewBag.Action = "Add";
+
             return View();
         }
         
